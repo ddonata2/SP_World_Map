@@ -6,21 +6,44 @@
 <title>SP Interactive World Map</title>
 <link href="map.css" rel="stylesheet">
 <style>
-  html, body { margin: 0; padding: 0; background: transparent; }
-  #map-container { width: 100%; margin: 0 auto; }
+  html, body { margin: 0; padding: 0; }
+  #map-container { width: 100%; min-height: 400px; }
+  #diag { font: 13px/1.5 monospace; padding: 12px; background: #fff8e1;
+          border-bottom: 2px solid #ffb300; white-space: pre-wrap; }
+  #diag b { color: #b71c1c; }
 </style>
 </head>
 <body>
 
+<div id="diag">Loading…</div>
 <div id="map-container"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="raphael.min.js"></script>
 <script src="settings.js"></script>
 <script src="paths.js"></script>
 <script src="map.js"></script>
 <script>
-  var map = new FlaMap(map_cfg);
-  map.drawOnDomReady('map-container');
+(function () {
+  var d = document.getElementById('diag');
+  var lines = [];
+  lines.push('jQuery loaded:  ' + (typeof jQuery !== 'undefined'));
+  lines.push('Raphael loaded: ' + (typeof Raphael !== 'undefined'));
+  lines.push('map_cfg loaded: ' + (typeof map_cfg !== 'undefined'));
+  lines.push('FlaMap loaded:  ' + (typeof FlaMap !== 'undefined'));
+  try {
+    var map = new FlaMap(map_cfg);
+    map.drawOnDomReady('map-container');
+    lines.push('init call:      OK (no error thrown)');
+  } catch (e) {
+    lines.push('init call:      FAILED');
+    lines.push('<b>ERROR: ' + (e && e.message ? e.message : e) + '</b>');
+  }
+  window.onerror = function (msg, src, line) {
+    d.innerHTML += '\n<b>PAGE ERROR: ' + msg + '  (' + src + ' line ' + line + ')</b>';
+  };
+  d.innerHTML = lines.join('\n');
+})();
 </script>
 
 </body>
