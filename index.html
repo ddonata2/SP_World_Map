@@ -7,42 +7,57 @@
 <link href="map.css" rel="stylesheet">
 <style>
   html, body { margin: 0; padding: 0; }
-  #map-container { width: 100%; min-height: 400px; }
-  #diag { font: 13px/1.5 monospace; padding: 12px; background: #fff8e1;
+  #map-container, #map, #world-map { width: 100%; min-height: 400px; }
+  #diag { font: 13px/1.6 monospace; padding: 12px; background: #fff8e1;
           border-bottom: 2px solid #ffb300; white-space: pre-wrap; }
-  #diag b { color: #b71c1c; }
 </style>
 </head>
 <body>
 
 <div id="diag">Loading…</div>
-<div id="map-container"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div id="map-container"></div>
+<div id="map"></div>
+<div id="world-map"></div>
+
+<script>var __before = Object.keys(window);</script>
 <script src="raphael.min.js"></script>
 <script src="settings.js"></script>
 <script src="paths.js"></script>
 <script src="map.js"></script>
 <script>
 (function () {
-  var d = document.getElementById('diag');
-  var lines = [];
-  lines.push('jQuery loaded:  ' + (typeof jQuery !== 'undefined'));
-  lines.push('Raphael loaded: ' + (typeof Raphael !== 'undefined'));
-  lines.push('map_cfg loaded: ' + (typeof map_cfg !== 'undefined'));
-  lines.push('FlaMap loaded:  ' + (typeof FlaMap !== 'undefined'));
-  try {
-    var map = new FlaMap(map_cfg);
-    map.drawOnDomReady('map-container');
-    lines.push('init call:      OK (no error thrown)');
-  } catch (e) {
-    lines.push('init call:      FAILED');
-    lines.push('<b>ERROR: ' + (e && e.message ? e.message : e) + '</b>');
-  }
-  window.onerror = function (msg, src, line) {
-    d.innerHTML += '\n<b>PAGE ERROR: ' + msg + '  (' + src + ' line ' + line + ')</b>';
-  };
-  d.innerHTML = lines.join('\n');
+  var out = [];
+  var added = Object.keys(window).filter(function (k) {
+    return __before.indexOf(k) === -1 && k !== '__before';
+  });
+  out.push('=== NEW GLOBALS ADDED BY THE SCRIPTS ===');
+  added.forEach(function (k) {
+    var t; try { t = typeof window[k]; } catch (e) { t = '?'; }
+    out.push('  ' + k + '   [' + t + ']');
+  });
+  out.push('');
+  out.push('=== GLOBALS MATCHING map/fla/world/draw ===');
+  Object.keys(window).filter(function (k) {
+    return /map|fla|world|draw/i.test(k);
+  }).forEach(function (k) {
+    var t; try { t = typeof window[k]; } catch (e) { t = '?'; }
+    out.push('  ' + k + '   [' + t + ']');
+  });
+  out.push('');
+  out.push('=== METHODS ON MAP-ISH OBJECTS ===');
+  Object.keys(window).filter(function (k) {
+    return /map|fla/i.test(k) && window[k] && typeof window[k] === 'object';
+  }).forEach(function (k) {
+    try { out.push('  ' + k + ': ' + Object.keys(window[k]).slice(0, 25).join(', ')); } catch (e) {}
+  });
+  out.push('');
+  out.push('=== CONTAINER CONTENTS ===');
+  ['map-container', 'map', 'world-map'].forEach(function (id) {
+    var el = document.getElementById(id);
+    out.push('  #' + id + ': ' + (el ? el.innerHTML.length + ' chars inside' : 'missing'));
+  });
+  document.getElementById('diag').textContent = out.join('\n');
 })();
 </script>
 
