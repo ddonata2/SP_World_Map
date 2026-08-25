@@ -49,11 +49,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st3": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Albania",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st4": {
@@ -123,9 +123,9 @@ var map_cfg = {
   "st12": {
    "link": "https://www.smart-parc.com/sites/europe",
    "name": "Armenia",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st13": {
@@ -155,9 +155,9 @@ var map_cfg = {
   "st16": {
    "link": "https://www.smart-parc.com/sites/europe",
    "name": "Azerbaijan",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st17": {
@@ -193,11 +193,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st21": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Belarus",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st22": {
@@ -249,11 +249,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st28": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Bosnia and Herzegovina",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st29": {
@@ -691,9 +691,9 @@ var map_cfg = {
   "st83": {
    "link": "https://www.smart-parc.com/sites/europe",
    "name": "Georgia",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st84": {
@@ -969,11 +969,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st118": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Kosovo",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st119": {
@@ -1073,11 +1073,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st131": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "North Macedonia",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st132": {
@@ -1185,11 +1185,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st145": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Moldova",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st146": {
@@ -1209,11 +1209,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st148": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Montenegro",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st149": {
@@ -1483,9 +1483,9 @@ var map_cfg = {
   "st182": {
    "link": "",
    "name": "Russian Federation",
-   "color": "#BDBDBD",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#9E9E9E",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st183": {
@@ -1585,11 +1585,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st195": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Serbia",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st196": {
@@ -1857,11 +1857,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st229": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Turkey",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st230": {
@@ -1897,11 +1897,11 @@ var map_cfg = {
    "shortname": ""
   },
   "st234": {
-   "link": "https://www.smart-parc.com/sites/europe",
+   "link": "",
    "name": "Ukraine",
-   "color": "#9fc63b",
+   "color": "#bdbdbd",
    "comment": "",
-   "colorOver": "#3aaa35",
+   "colorOver": "#9e9e9e",
    "shortname": ""
   },
   "st235": {
