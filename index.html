@@ -7,58 +7,41 @@
 <link href="map.css" rel="stylesheet">
 <style>
   html, body { margin: 0; padding: 0; }
-  #map-container, #map, #world-map { width: 100%; min-height: 400px; }
+  #map-container { width: 100%; min-height: 400px; }
   #diag { font: 13px/1.6 monospace; padding: 12px; background: #fff8e1;
           border-bottom: 2px solid #ffb300; white-space: pre-wrap; }
 </style>
 </head>
 <body>
 
-<div id="diag">Loading…</div>
-
+<div id="diag">Waiting…</div>
 <div id="map-container"></div>
-<div id="map"></div>
-<div id="world-map"></div>
 
-<script>var __before = Object.keys(window);</script>
 <script src="raphael.min.js"></script>
 <script src="settings.js"></script>
 <script src="paths.js"></script>
 <script src="map.js"></script>
 <script>
-(function () {
-  var out = [];
-  var added = Object.keys(window).filter(function (k) {
-    return __before.indexOf(k) === -1 && k !== '__before';
-  });
-  out.push('=== NEW GLOBALS ADDED BY THE SCRIPTS ===');
-  added.forEach(function (k) {
-    var t; try { t = typeof window[k]; } catch (e) { t = '?'; }
-    out.push('  ' + k + '   [' + t + ']');
-  });
-  out.push('');
-  out.push('=== GLOBALS MATCHING map/fla/world/draw ===');
-  Object.keys(window).filter(function (k) {
-    return /map|fla|world|draw/i.test(k);
-  }).forEach(function (k) {
-    var t; try { t = typeof window[k]; } catch (e) { t = '?'; }
-    out.push('  ' + k + '   [' + t + ']');
-  });
-  out.push('');
-  out.push('=== METHODS ON MAP-ISH OBJECTS ===');
-  Object.keys(window).filter(function (k) {
-    return /map|fla/i.test(k) && window[k] && typeof window[k] === 'object';
-  }).forEach(function (k) {
-    try { out.push('  ' + k + ': ' + Object.keys(window[k]).slice(0, 25).join(', ')); } catch (e) {}
-  });
-  out.push('');
-  out.push('=== CONTAINER CONTENTS ===');
-  ['map-container', 'map', 'world-map'].forEach(function (id) {
-    var el = document.getElementById(id);
-    out.push('  #' + id + ': ' + (el ? el.innerHTML.length + ' chars inside' : 'missing'));
-  });
-  document.getElementById('diag').textContent = out.join('\n');
-})();
+var d = document.getElementById('diag');
+var log = [];
+log.push('immediately after scripts: FlaMap is ' + (typeof FlaMap));
+
+window.addEventListener('load', function () {
+  log.push('at window.load:            FlaMap is ' + (typeof FlaMap));
+  setTimeout(function () {
+    log.push('2 seconds after load:      FlaMap is ' + (typeof FlaMap));
+    if (typeof FlaMap === 'function') {
+      try {
+        new FlaMap(map_cfg).drawOnDomReady('map-container');
+        log.push('>>> DREW THE MAP OK <<<');
+      } catch (e) { log.push('>>> init threw: ' + e.message); }
+    } else {
+      log.push('>>> FlaMap never appears — licence gate confirmed <<<');
+    }
+    d.textContent = log.join('\n');
+  }, 2000);
+});
+d.textContent = log.join('\n');
 </script>
 
 </body>
