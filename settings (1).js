@@ -337,7 +337,7 @@ var map_cfg = {
    "shortname": ""
   },
   "st39": {
-   "link": "https://www.smart-parc.com/sites/north-america-canada",
+   "link": "https://www.smart-parc.com/sites/usa-canada",
    "name": "Canada",
    "color": "#9fc63b",
    "comment": "",
@@ -1921,8 +1921,8 @@ var map_cfg = {
    "shortname": ""
   },
   "st237": {
-   "link": "https://www.smart-parc.com/sites/north-america-canada",
-   "name": "United States",
+   "link": "https://www.smart-parc.com/sites/usa-canada",
+   "name": "USA",
    "color": "#9fc63b",
    "comment": "",
    "colorOver": "#3aaa35",
